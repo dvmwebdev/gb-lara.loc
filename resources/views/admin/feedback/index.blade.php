@@ -30,7 +30,9 @@
                             <tr>
                                 <td>{{$feedback->id}}</td>
                                 <td>{{$feedback->content}}</td>
-                                <td>{{$feedback->image}}</td>
+                                <td><img
+                                        src="{{asset($feedback->image??'images/no_image.png')}}"
+                                        alt=""></td>
                                 <td>
                                     @if($feedback->moderate)
                                         <span class="badge badge-success">Перевірено</span>
