@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\RegisterRequest;
-use App\Models\User;
+use App\Services\UserService;
+use DomainException;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
 {
@@ -28,17 +28,16 @@ class RegisterController extends Controller
 
     /**
      * @param RegisterRequest $request
+     * @param UserService $userService
      * @return RedirectResponse
      */
-    protected function register(RegisterRequest $request): RedirectResponse
+    protected function register(RegisterRequest $request, UserService $userService): RedirectResponse
     {
-        User::create([
-            'username' => $request->get('username'),
-            'email' => strtolower($request->get('email')),
-            'password' => Hash::make($request->get('password')),
-            'user_agent' => request()->userAgent(),
-            'user_ip' => request()->ip(),
-        ]);
-        return redirect()->route('login')->with('register', 'qweqweqwewqe');
+        try {
+            $userService->create($request);
+            return redirect()->route('login')->with('success', 'Створення акаунту пройшло успішно');
+        } catch (DomainException $exception) {
+            return redirect()->back()->with('danger', $exception->getMessage());
+        }
     }
 }

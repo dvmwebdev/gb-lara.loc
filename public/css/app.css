@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
 @import url(https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css);
-
 @charset "UTF-8";
 /*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)
@@ -11692,35 +11691,28 @@ textarea.form-control-lg {
     border: 0 solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
 }
-
 .section__profile .card-body {
     flex: 1 1 auto;
     min-height: 1px;
     padding: 1rem;
 }
-
 .section__profile .gutters-sm {
     margin-right: -8px;
     margin-left: -8px;
 }
-
 .section__profile .gutters-sm > .col, .section__profile .gutters-sm > [class*=col-] {
     padding-right: 8px;
     padding-left: 8px;
 }
-
 .section__profile .mb-3, .section__profile .my-3 {
     margin-bottom: 1rem !important;
 }
-
 .section__profile .bg-gray-300 {
     background-color: #f0e2e8;
 }
-
 .section__profile .h-100 {
     height: 100% !important;
 }
-
 .section__profile .shadow-none {
     box-shadow: none !important;
 }
@@ -11730,7 +11722,6 @@ textarea.form-control-lg {
     vertical-align: middle;
     font-size: 24px;
 }
-
 .feedback__actions .bi-trash-fill {
     color: #ce1d2c;
 }
