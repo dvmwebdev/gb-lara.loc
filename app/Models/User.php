@@ -13,6 +13,9 @@ class User extends Authenticatable
 {
     use HasFactory, Sortable, HasApiTokens, Notifiable;
 
+    const ROLE_USER = 'user';
+    const ROLE_ADMIN = 'admin';
+
     public array $sortable = ['email', 'username'];
     protected $table = 'users';
     protected $guarded = [];

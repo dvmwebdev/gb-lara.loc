@@ -34,7 +34,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
-            ul
+            <li class="nav-item dropdown">
+                <a id="dropdownMenuLink" class="nav-link dropdown-toggle"
+                   href="#" role="button"
+                   data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false">
+                    {{ Auth::user()->email }}
+                </a>
+
+                <div class="dropdown-menu dropdown-menu"
+                     aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item"
+                       href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                        {{ trans('menu.item.logout') }}
+                    </a>
+
+                    <form id="logout-form"
+                          action="{{ route('logout') }}" method="POST"
+                          class="d-none">
+                        @csrf
+                    </form>
+                </div>
+            </li>
         </ul>
     </nav>
     <!-- /.navbar -->
@@ -52,11 +75,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="{{asset('dist/img/user3-128x128.jpg')}}"
+                    <img src="{{asset('dist/img/user2-160x160.jpg')}}"
                          class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block">Alexander Pierce</a>
+                    <a href="#" class="d-block">{{Auth::user()->username}}</a>
                 </div>
             </div>
 

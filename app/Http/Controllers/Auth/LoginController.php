@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\User;
 use Auth;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -43,7 +44,9 @@ class LoginController extends Controller
 
         if ($auth) {
             $request->session()->regenerate();
-            return redirect()->intended(route('user.index'));
+
+            if (User::ROLE_USER === auth()->user()->role) return redirect()->intended(route('user.index'));
+            if (User::ROLE_ADMIN === auth()->user()->role) return redirect()->intended(route('admin.dashboard.index'));
         }
         throw ValidationException::withMessages(['email' => [trans('auth.failed')]]);
     }
