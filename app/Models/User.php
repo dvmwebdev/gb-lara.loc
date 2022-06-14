@@ -38,4 +38,14 @@ class User extends Authenticatable
             'status' => 0
         ]);
     }
+
+    public function countFeedbacksAll(): int
+    {
+        return $this->feedbacks()->count();
+    }
+
+    public function countFeedbacksModerate(): int
+    {
+        return $this->feedbacks()->where(['moderate' => 0])->count();
+    }
 }

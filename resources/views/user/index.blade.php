@@ -32,13 +32,13 @@
                                     <button class="btn btn-warning">
                                         {{trans('userprofile.button.feedback.moderate')}}
                                         <span
-                                            class="badge bg-danger">{{count($user->feedbacks)}}</span>
+                                            class="badge bg-danger">{{$user->countFeedbacksModerate()}}</span>
                                     </button>
                                     <button type="button"
                                             class="btn btn-primary">
                                         {{trans('userprofile.button.feedback.all')}}
                                         <span
-                                            class="badge bg-secondary">{{count($user->feedbacks)}}</span>
+                                            class="badge bg-secondary">{{$user->countFeedbacksAll()}}</span>
                                     </button>
                                 </div>
                             </div>

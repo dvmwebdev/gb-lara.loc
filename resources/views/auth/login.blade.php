@@ -3,25 +3,13 @@
 @section('content')
     <div class="section__profile">
         <div class="container">
-            @if(session('success'))
-                <div
-                    class="toast-container position-fixed top-5 end-0 p-3 bg-success">
-                    <div id="liveToast" class="toast show" role="alert"
-                         aria-live="assertive" aria-atomic="true">
-                        <div class="toast-header">
-                            <strong class="me-auto">Повідомлення</strong>
-                            <button type="button" class="btn-close"
-                                    data-bs-dismiss="toast"
-                                    aria-label="Close"></button>
-                        </div>
-                        <div class="toast-body">
-                            {{session('success')}}
-                        </div>
-                    </div>
-                </div>
-            @endif
             <div class="row justify-content-center">
                 <div class="col-md-8">
+                    @if(session('success'))
+                        <div class="alert alert-success">
+                            <span>{{session('success')}}</span>
+                        </div>
+                    @endif
                     <div class="card">
                         <div
                             class="card-header">{{ trans('login.card.header.text') }}</div>
