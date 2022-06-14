@@ -17,6 +17,16 @@ class DashboardService
     }
 
     /**
+     * @return array
+     */
+    public function getData(): array
+    {
+        $data = [];
+        $data['userAll'] = $this->userAll();
+        return $data;
+    }
+
+    /**
      * @return int
      */
     public function userAll(): int
@@ -25,10 +35,37 @@ class DashboardService
     }
 
     /**
+     * @param string $keyName
+     * @param int $value
      * @return int
      */
-    public function userBaned(): int
+    public function data(string $keyName, int $value): int
     {
-        return $this->user->all()->where(['is_baned' => 1])->count();
+        return $this->data[$keyName] = $value;
+
+    }
+
+    /**
+     * @return void
+     */
+    public function userBaned(): void
+    {
+        $this->data['userBaned'] = $this->user->all()->where(['is_baned' => 1])->count();
+    }
+
+    /**
+     * @return void
+     */
+    public function feedbackAll(): void
+    {
+        $this->data['feedbackAll'] = $this->feedback->all()->count();
+    }
+
+    /**
+     * @return void
+     */
+    public function feedbackModerate(): void
+    {
+        $this->data['feedbackAll'] = $this->feedback->all()->where(['moderate' => 0])->count();
     }
 }
