@@ -73,7 +73,8 @@
                                         alt="asdads">
                                     <input id="image" type="file"
                                            class="form-control @error('image') is-invalid @enderror"
-                                           name="image">
+                                           name="image"
+                                           value="{{$feedback->image}}">
 
                                     @error('image')
                                     <span class="invalid-feedback" role="alert">

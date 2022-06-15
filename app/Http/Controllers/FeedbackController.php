@@ -68,8 +68,9 @@ class FeedbackController extends Controller
         ]);
     }
 
-    public function update(Request $request, Feedback $feedback)
+    public function update(Request $request, Feedback $feedback): RedirectResponse
     {
+        dd($request);
         $this->feedbackService->update($request, $feedback);
         return redirect()->route('feedback.index');
     }

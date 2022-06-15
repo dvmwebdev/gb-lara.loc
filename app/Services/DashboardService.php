@@ -9,63 +9,48 @@ use App\Models\User;
 
 class DashboardService
 {
+
+    /**
+     * @var array
+     */
+    public array $dataAmount = [];
+
     public function __construct(
         private readonly User     $user,
         private readonly Feedback $feedback
     )
     {
+        $this->dataAmountInit();
+    }
+
+    /**
+     * @return void
+     */
+    public function dataAmountInit(): void
+    {
+        $this->setDataAmount('userAll', $this->user->userAll());
+        $this->setDataAmount('userBaned', $this->user->userBaned());
+        $this->setDataAmount('feedbackAll', $this->feedback->feedbackAll());
+        $this->setDataAmount('feedbackModerate', $this->feedback->feedbackModerate());
     }
 
     /**
      * @return array
      */
-    public function getData(): array
+    public function getDataAmount(): array
     {
-        $data = [];
-        $data['userAll'] = $this->userAll();
-        return $data;
-    }
-
-    /**
-     * @return int
-     */
-    public function userAll(): int
-    {
-        return $this->user->all()->count();
+        return $this->dataAmount;
     }
 
     /**
      * @param string $keyName
      * @param int $value
-     * @return int
-     */
-    public function data(string $keyName, int $value): int
-    {
-        return $this->data[$keyName] = $value;
-
-    }
-
-    /**
      * @return void
      */
-    public function userBaned(): void
+    public function setDataAmount(string $keyName, int $value): void
     {
-        $this->data['userBaned'] = $this->user->all()->where(['is_baned' => 1])->count();
+        $this->dataAmount[$keyName] = $value;
     }
 
-    /**
-     * @return void
-     */
-    public function feedbackAll(): void
-    {
-        $this->data['feedbackAll'] = $this->feedback->all()->count();
-    }
 
-    /**
-     * @return void
-     */
-    public function feedbackModerate(): void
-    {
-        $this->data['feedbackAll'] = $this->feedback->all()->where(['moderate' => 0])->count();
-    }
 }

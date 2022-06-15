@@ -48,4 +48,20 @@ class User extends Authenticatable
     {
         return $this->feedbacks()->where(['moderate' => 0])->count();
     }
+
+    /**
+     * @return int
+     */
+    public function userAll(): int
+    {
+        return $this->all()->count();
+    }
+
+    /**
+     * @return int
+     */
+    public function userBaned(): int
+    {
+        return $this->where(['is_baned' => 1])->count();
+    }
 }

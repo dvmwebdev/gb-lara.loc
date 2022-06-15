@@ -16,14 +16,12 @@ class DashboardAdminController extends Controller
     }
 
     /**
-     * @param DashboardService $service
      * @return View
      */
-    public function index(DashboardService $service): View
+    public function index(): View
     {
-        dd($this->service->getData());
         return view('admin.index', [
-            'data' => $service->getData()
+            'dataAmount' => $this->service->getDataAmount()
         ]);
     }
 }

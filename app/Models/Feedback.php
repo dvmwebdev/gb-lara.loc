@@ -21,4 +21,20 @@ class Feedback extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    /**
+     * @return int
+     */
+    public function feedbackAll(): int
+    {
+        return $this->all()->count();
+    }
+
+    /**
+     * @return int
+     */
+    public function feedbackModerate(): int
+    {
+        return $this->where(['moderate' => 0])->count();
+    }
 }

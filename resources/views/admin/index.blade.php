@@ -7,7 +7,7 @@
             <div class="small-box bg-primary">
                 <div class="inner">
                     <p>Користувачів</p>
-                    <h3>{{$users}}</h3>
+                    <h3>{{$dataAmount['userAll']}}</h3>
                 </div>
                 <div class="icon">
                     <i class="ion ion-bag"></i>
@@ -22,7 +22,7 @@
             <div class="small-box bg-danger">
                 <div class="inner">
                     <p>Заблокованих користувачів</p>
-                    <h3>{{$usersBaned}}</h3>
+                    <h3>{{$dataAmount['userBaned']}}</h3>
                 </div>
                 <div class="icon">
                     <i class="ion ion-pie-graph"></i>
@@ -39,8 +39,8 @@
             <!-- small box -->
             <div class="small-box bg-success">
                 <div class="inner">
-                    <p>Користувачів</p>
-                    <h3>{{$users}}</h3>
+                    <p>Всіх відгуків</p>
+                    <h3>{{$dataAmount['feedbackAll']}}</h3>
                 </div>
                 <div class="icon">
                     <i class="ion ion-bag"></i>
@@ -54,8 +54,8 @@
             <!-- small box -->
             <div class="small-box bg-warning">
                 <div class="inner">
-                    <p>Заблокованих користувачів</p>
-                    <h3>{{$usersBaned}}</h3>
+                    <p>На модерації</p>
+                    <h3>{{$dataAmount['feedbackModerate']}}</h3>
                 </div>
                 <div class="icon">
                     <i class="ion ion-pie-graph"></i>
