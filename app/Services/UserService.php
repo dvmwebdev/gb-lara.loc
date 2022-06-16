@@ -9,15 +9,22 @@ use App\Http\Requests\Auth\RegisterRequest;
 use App\Http\Requests\User\EditRequest;
 use App\Models\User;
 use DomainException;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class UserService
 {
-    public function create(RegisterRequest $request)
+    /**
+     * @param RegisterRequest $request
+     * @return Model|User
+     */
+    public function create(RegisterRequest $request): Model|User
     {
-        $user = User::firstWhere(['email' => strtolower($request->get('email'))]);
-        if ($user) throw new DomainException('Користувач з такою електроною адресою вже існує');
+        $user = User::firstWhere(['email' => Str::lower($request->get('email'))]);
+        if ($user) throw new DomainException('Користувач з такою електронною адресою вже існує');
 
         return User::create([
             'username' => $request->get('username'),
@@ -28,7 +35,12 @@ class UserService
         ]);
     }
 
-    public function update(EditRequest $request, User $user): void
+    /**
+     * @param EditRequest $request
+     * @param User $user
+     * @return User
+     */
+    public function update(EditRequest $request, User $user): User
     {
         $dataUser = $request->all();
         if ($request->hasFile('image')) {
@@ -39,9 +51,10 @@ class UserService
         }
 
         $user->update($dataUser);
+        return $user;
     }
 
-    public function getUsersAdminPaginate()
+    public function getUsersAdminPaginate(): LengthAwarePaginator
     {
         return User::sortable(['created_at' => 'desc'])->paginate(5);
     }

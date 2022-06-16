@@ -43,7 +43,7 @@
                                                         class="badge bg-danger">{{trans('feedback.badge.danger.text')}}</span>
                                                 @endif
                                             </td>
-                                            <td>@if($feedback->image)
+                                            <td style="width: 150px;">@if($feedback->image)
                                                     <img class="w-100"
                                                          src="{{ $feedback->image }}"
                                                          alt="">

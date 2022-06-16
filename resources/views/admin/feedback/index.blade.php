@@ -30,8 +30,8 @@
                             <tr>
                                 <td>{{$feedback->id}}</td>
                                 <td>{{$feedback->content}}</td>
-                                <td><img
-                                        src="{{asset($feedback->image??'images/no_image.png')}}"
+                                <td style="width: 150px;"><img class="w-100"
+                                                               src="{{asset($feedback->image??'images/no_image.png')}}"
                                         alt=""></td>
                                 <td>
                                     @if($feedback->moderate)
