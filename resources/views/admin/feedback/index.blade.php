@@ -47,7 +47,7 @@
                                 <td class="feedback__actions">
                                     <a href="{{route('admin.feedback.edit',$feedback->id)}}"><i
                                             class="far fa-edit"></i></a>
-                                    <a href="{{route('feedback.delete',$feedback->id)}}">
+                                    <a href="{{route('admin.feedback.delete',$feedback->id)}}">
                                         @csrf
                                         <i class="far fa-trash-alt"></i>
                                     </a>

@@ -10,25 +10,25 @@
                     </div>
                 @endif
                 <div class="card">
-                    <div class="card-header">Редагувати відгук</div>
+                    <div class="card-header">Редагувати користувача</div>
                     <div class="card-body">
                         <form method="POST"
-                              action="{{ route('admin.feedback.update', $feedback->id) }}">
+                              action="{{ route('admin.user.update', $user->id) }}">
                             @csrf
                             @method('patch')
                             <div class="row mb-3">
-                                <label for="moderate"
-                                       class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                                <label for="is_baned"
+                                       class="col-md-4 col-form-label text-md-end">is_baned</label>
 
                                 <div class="col-md-6">
                                     <select class="form-control"
-                                            name="moderate">
+                                            name="is_baned">
                                         <option
-                                            value="0" {{ $feedback->moderate?'selected':'' }}>
+                                            value="0" {{ $user->is_baned?'selected':'' }}>
                                             Заборонити
                                         </option>
                                         <option
-                                            value="1" {{ $feedback->moderate?'selected':'' }}>
+                                            value="1" {{ $user->is_baned?'selected':'' }}>
                                             Підтвердити
                                         </option>
                                     </select>
@@ -43,7 +43,7 @@
                                     <textarea
                                         class="form-control @error('content') is-invalid @enderror"
                                         name="content"
-                                        id="content">{{ $feedback->content }}</textarea>
+                                        id="content">{{ $user->user_browser }}</textarea>
                                     @error('content')
                                     <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -54,10 +54,7 @@
 
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit"
-                                            class="btn btn-primary">
-                                        update
-                                    </button>
+                                    <input type="submit" class="btn bg-primary">
                                 </div>
                             </div>
                         </form>

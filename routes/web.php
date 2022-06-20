@@ -45,7 +45,11 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     Route::get('/feedback', [FeedbackAdminController::class, 'index'])->name('admin.feedback.index');
     Route::get('/feedback/edit/{feedback}', [FeedbackAdminController::class, 'edit'])->name('admin.feedback.edit');
     Route::patch('/feedback/update/{feedback}', [FeedbackAdminController::class, 'update'])->name('admin.feedback.update');
+    Route::get('/feedback/delete/{feedback}', [FeedbackAdminController::class, 'delete'])->name('admin.feedback.delete');
 
     Route::get('/user', [UserAdminController::class, 'index'])->name('admin.user.index');
-    Route::get('/show/{user}', [UserAdminController::class, 'show'])->name('admin.user.show');
+    Route::get('/user/show/{user}', [UserAdminController::class, 'show'])->name('admin.user.show');
+    Route::get('/user/edit/{user}', [UserAdminController::class, 'edit'])->name('admin.user.edit');
+    Route::patch('/user/update/{user}', [UserAdminController::class, 'update'])->name('admin.user.update');
+
 });

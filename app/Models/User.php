@@ -9,6 +9,13 @@ use Illuminate\Notifications\Notifiable;
 use Kyslik\ColumnSortable\Sortable;
 use Laravel\Sanctum\HasApiTokens;
 
+/**
+ * @property string $email
+ * @property string $username
+ * @property string $password
+ * @property string $user_ip
+ * @property string $user_browser
+ */
 class User extends Authenticatable
 {
     use HasFactory, Sortable, HasApiTokens, Notifiable;

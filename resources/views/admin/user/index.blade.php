@@ -23,6 +23,7 @@
                             <th>user ip</th>
                             <th>create</th>
                             <th>update</th>
+                            <th>actions</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -57,7 +58,7 @@
                                 <td>{{$user->created_at}}</td>
                                 <td>{{$user->updated_at}}</td>
                                 <td class="user__actions">
-                                    <a href="#"><i
+                                    <a href="{{route('admin.user.edit',$user->id)}}"><i
                                             class="far fa-edit"></i></a>
                                     <a href="#">
                                         @csrf
