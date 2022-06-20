@@ -31,7 +31,7 @@ class FeedbackService
 
     public function getFeedbacksAdminPaginate(): LengthAwarePaginator
     {
-        return $this->feedback->sortable(['created_at' => 'desc'])->paginate(6);
+        return $this->feedback->sortable(['created_at' => 'desc'])->with('user')->paginate(6);
     }
 
     public function getFeedbacksByUserPaginate(int $userId): LengthAwarePaginator

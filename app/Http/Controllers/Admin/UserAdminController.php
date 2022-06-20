@@ -49,4 +49,10 @@ class UserAdminController extends Controller
         $this->userService->update($request, $user);
         return redirect()->route('admin.user.index');
     }
+
+    public function delete(User $user): RedirectResponse
+    {
+        $user->delete();
+        return redirect()->back();
+    }
 }

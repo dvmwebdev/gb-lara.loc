@@ -51,5 +51,5 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     Route::get('/user/show/{user}', [UserAdminController::class, 'show'])->name('admin.user.show');
     Route::get('/user/edit/{user}', [UserAdminController::class, 'edit'])->name('admin.user.edit');
     Route::patch('/user/update/{user}', [UserAdminController::class, 'update'])->name('admin.user.update');
-
+    Route::get('/user/delete/{user}', [UserAdminController::class, 'delete'])->name('admin.user.delete');
 });

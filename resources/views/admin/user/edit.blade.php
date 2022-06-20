@@ -25,33 +25,16 @@
                                             name="is_baned">
                                         <option
                                             value="0" {{ $user->is_baned?'selected':'' }}>
-                                            Заборонити
+                                            Активний
                                         </option>
                                         <option
                                             value="1" {{ $user->is_baned?'selected':'' }}>
-                                            Підтвердити
+                                            Забанений
                                         </option>
                                     </select>
                                 </div>
                             </div>
-
-                            <div class="row mb-3">
-                                <label for="content"
-                                       class="col-md-4 col-form-label text-md-end">{{ __('Content') }}</label>
-
-                                <div class="col-md-6">
-                                    <textarea
-                                        class="form-control @error('content') is-invalid @enderror"
-                                        name="content"
-                                        id="content">{{ $user->user_browser }}</textarea>
-                                    @error('content')
-                                    <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
+                            
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <input type="submit" class="btn bg-primary">
