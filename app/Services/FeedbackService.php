@@ -3,6 +3,7 @@
 namespace App\Services;
 
 
+use App\Http\Filter\FeedbackFilter;
 use App\Http\Requests\Feedback\CreateRequest;
 use App\Models\Feedback;
 use Illuminate\Database\Eloquent\Collection;
@@ -29,9 +30,11 @@ class FeedbackService
         return $this->feedback->sortable(['created_at' => 'desc'])->with('user')->where('feedbacks.moderate', 1)->paginate(25);
     }
 
-    public function getFeedbacksAdminPaginate(): LengthAwarePaginator
+    public function getFeedbacksAdminPaginate(array $data): LengthAwarePaginator
     {
-        return $this->feedback->sortable(['created_at' => 'desc'])->with('user')->paginate(6);
+
+        $filter = app()->make(FeedbackFilter::class, ['queryParams' => array_filter($data, 'str')]);
+        return $this->feedback->filter($filter)->sortable(['created_at' => 'desc'])->with('user')->paginate(6);
     }
 
     public function getFeedbacksByUserPaginate(int $userId): LengthAwarePaginator

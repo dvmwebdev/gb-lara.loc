@@ -22,7 +22,7 @@
 
                                 <div class="col-md-6">
                                     <select class="form-control"
-                                            name="is_baned">
+                                            name="is_baned" id="is_baned">
                                         <option
                                             value="0" {{ $user->is_baned?'selected':'' }}>
                                             Активний
@@ -34,7 +34,7 @@
                                     </select>
                                 </div>
                             </div>
-                            
+
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <input type="submit" class="btn bg-primary">

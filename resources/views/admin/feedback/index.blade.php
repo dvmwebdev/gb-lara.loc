@@ -5,8 +5,37 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">DataTable with minimal features &
-                        hover style</h3>
+                    <h3 class="card-title">
+                        <div class="d-flex">
+                            <form class="d-flex"
+                                  action="{{route('admin.feedback.index')}}"
+                                  method="get">
+                                <label for="username">username</label><input
+                                    class="form-control mr-1" type="text"
+                                    name="username" id="username">
+                                <label for="email">email</label><input
+                                    class="form-control mr-1" type="text"
+                                    name="email" id="email">
+                                <label for="moderate">moderate</label>
+                                <select class="form-control" name="moderate"
+                                        id="moderate">
+                                    <option selected disabled>
+                                        --
+                                    </option>
+                                    <option
+                                        value="0">
+                                        НЕ перевірено
+                                    </option>
+                                    <option
+                                        value="1">
+                                        Перевірено
+                                    </option>
+                                </select>
+                                <input class="btn btn-info mr-1" type="submit">
+                                <input class="btn btn-danger" type="reset">
+                            </form>
+                        </div>
+                    </h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">

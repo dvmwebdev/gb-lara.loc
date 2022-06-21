@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Filter\Traits\Filterable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -10,7 +11,7 @@ use Kyslik\ColumnSortable\Sortable;
 
 class Feedback extends Model
 {
-    use HasFactory, Sortable;
+    use HasFactory, Sortable, Filterable;
 
 
     public array $sortable = ['created_at'];

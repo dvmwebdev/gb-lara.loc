@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->unsignedBigInteger('user_id');
             $table->text('content');
             $table->string('image')->nullable();
-            $table->boolean('moderate')->default(0);
+            $table->integer('moderate')->default(0);
             $table->timestamps();
 
             $table->index('user_id', 'feedbacks_users_idx');

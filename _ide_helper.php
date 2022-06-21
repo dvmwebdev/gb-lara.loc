@@ -4,7 +4,7 @@
 
 /**
  * A helper file for Laravel, to provide autocomplete information to your IDE
- * Generated for Laravel 9.14.1.
+ * Generated for Laravel 9.17.0.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -2999,12 +2999,13 @@ namespace Illuminate\Support\Facades {
      *
      * @method static \Illuminate\Broadcasting\Broadcasters\Broadcaster channel(string $channel, callable|string $callback, array $options = [])
      * @method static mixed auth(\Illuminate\Http\Request $request)
+     * @method static void resolveAuthenticatedUserUsing(Closure $callback)
      * @see \Illuminate\Contracts\Broadcasting\Factory
      */
     class Broadcast
     {
         /**
-         * Register the routes for handling broadcast authentication and sockets.
+         * Register the routes for handling broadcast channel authentication and sockets.
          *
          * @param array|null $attributes
          * @return void
@@ -3014,6 +3015,34 @@ namespace Illuminate\Support\Facades {
         {
             /** @var \Illuminate\Broadcasting\BroadcastManager $instance */
             $instance->routes($attributes);
+        }
+
+        /**
+         * Register the routes for handling broadcast user authentication.
+         *
+         * @param array|null $attributes
+         * @return void
+         * @static
+         */
+        public static function userAuthenticationRoutes($attributes = null)
+        {
+            /** @var \Illuminate\Broadcasting\BroadcastManager $instance */
+            $instance->userAuthenticationRoutes($attributes);
+        }
+
+        /**
+         * Register the routes for handling broadcast authentication and sockets.
+         *
+         * Alias of "routes" method.
+         *
+         * @param array|null $attributes
+         * @return void
+         * @static
+         */
+        public static function channelAuthorizationRoutes($attributes = null)
+        {
+            /** @var \Illuminate\Broadcasting\BroadcastManager $instance */
+            $instance->channelAuthorizationRoutes($attributes);
         }
 
         /**
@@ -4313,6 +4342,54 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
+         * Remove all items from the cache.
+         *
+         * @return bool
+         * @static
+         */
+        public static function flush()
+        {
+            /** @var \Illuminate\Cache\FileStore $instance */
+            return $instance->flush();
+        }
+
+        /**
+         * Get the Filesystem instance.
+         *
+         * @return \Illuminate\Filesystem\Filesystem
+         * @static
+         */
+        public static function getFilesystem()
+        {
+            /** @var \Illuminate\Cache\FileStore $instance */
+            return $instance->getFilesystem();
+        }
+
+        /**
+         * Get the working directory of the cache.
+         *
+         * @return string
+         * @static
+         */
+        public static function getDirectory()
+        {
+            /** @var \Illuminate\Cache\FileStore $instance */
+            return $instance->getDirectory();
+        }
+
+        /**
+         * Get the cache key prefix.
+         *
+         * @return string
+         * @static
+         */
+        public static function getPrefix()
+        {
+            /** @var \Illuminate\Cache\FileStore $instance */
+            return $instance->getPrefix();
+        }
+
+        /**
          * Get a lock instance.
          *
          * @param string $name
@@ -4323,7 +4400,7 @@ namespace Illuminate\Support\Facades {
          */
         public static function lock($name, $seconds = 0, $owner = null)
         {
-            /** @var \Illuminate\Cache\RedisStore $instance */
+            /** @var \Illuminate\Cache\FileStore $instance */
             return $instance->lock($name, $seconds, $owner);
         }
 
@@ -4337,107 +4414,8 @@ namespace Illuminate\Support\Facades {
          */
         public static function restoreLock($name, $owner)
         {
-            /** @var \Illuminate\Cache\RedisStore $instance */
+            /** @var \Illuminate\Cache\FileStore $instance */
             return $instance->restoreLock($name, $owner);
-        }
-
-        /**
-         * Remove all items from the cache.
-         *
-         * @return bool
-         * @static
-         */
-        public static function flush()
-        {
-            /** @var \Illuminate\Cache\RedisStore $instance */
-            return $instance->flush();
-        }
-
-        /**
-         * Get the Redis connection instance.
-         *
-         * @return \Illuminate\Redis\Connections\Connection
-         * @static
-         */
-        public static function connection()
-        {
-            /** @var \Illuminate\Cache\RedisStore $instance */
-            return $instance->connection();
-        }
-
-        /**
-         * Get the Redis connection instance that should be used to manage locks.
-         *
-         * @return \Illuminate\Redis\Connections\Connection
-         * @static
-         */
-        public static function lockConnection()
-        {
-            /** @var \Illuminate\Cache\RedisStore $instance */
-            return $instance->lockConnection();
-        }
-
-        /**
-         * Specify the name of the connection that should be used to store data.
-         *
-         * @param string $connection
-         * @return void
-         * @static
-         */
-        public static function setConnection($connection)
-        {
-            /** @var \Illuminate\Cache\RedisStore $instance */
-            $instance->setConnection($connection);
-        }
-
-        /**
-         * Specify the name of the connection that should be used to manage locks.
-         *
-         * @param string $connection
-         * @return \Illuminate\Cache\RedisStore
-         * @static
-         */
-        public static function setLockConnection($connection)
-        {
-            /** @var \Illuminate\Cache\RedisStore $instance */
-            return $instance->setLockConnection($connection);
-        }
-
-        /**
-         * Get the Redis database instance.
-         *
-         * @return \Illuminate\Contracts\Redis\Factory
-         * @static
-         */
-        public static function getRedis()
-        {
-            /** @var \Illuminate\Cache\RedisStore $instance */
-            return $instance->getRedis();
-        }
-
-        /**
-         * Get the cache key prefix.
-         *
-         * @return string
-         * @static
-         */
-        public static function getPrefix()
-        {
-            /** @var \Illuminate\Cache\RedisStore $instance */
-            return $instance->getPrefix();
-        }
-
-        /**
-         * Set the cache key prefix.
-         *
-         * @param string $prefix
-         * @return void
-         * @static
-         */
-        public static function setPrefix($prefix)
-        {
-            /** @var \Illuminate\Cache\RedisStore $instance */
-            $instance->setPrefix($prefix);
         }
 
     }
@@ -7080,6 +7058,20 @@ namespace Illuminate\Support\Facades {
         }
 
         /**
+         * Determine if the given path is a directory that does not contain any other files or directories.
+         *
+         * @param string $directory
+         * @param bool $ignoreDotFiles
+         * @return bool
+         * @static
+         */
+        public static function isEmptyDirectory($directory, $ignoreDotFiles = false)
+        {
+            /** @var \Illuminate\Filesystem\Filesystem $instance */
+            return $instance->isEmptyDirectory($directory, $ignoreDotFiles);
+        }
+
+        /**
          * Determine if the given path is readable.
          *
          * @param string $path
@@ -7894,6 +7886,7 @@ namespace Illuminate\Support\Facades {
      * @method static \Illuminate\Http\Client\PendingRequest withoutVerifying()
      * @method static \Illuminate\Http\Client\PendingRequest throw(callable $callback = null)
      * @method static \Illuminate\Http\Client\PendingRequest throwIf($condition)
+     * @method \Illuminate\Http\Client\PendingRequest throwUnless($condition)
      * @method static array pool(callable $callback)
      * @method static \Illuminate\Http\Client\Response delete(string $url, array $data = [])
      * @method static \Illuminate\Http\Client\Response get(string $url, array|string|null $query = null)
@@ -7909,7 +7902,7 @@ namespace Illuminate\Support\Facades {
         /**
          * Create a new response instance for use during stubbing.
          *
-         * @param array|string $body
+         * @param array|string|null $body
          * @param int $status
          * @param array $headers
          * @return \GuzzleHttp\Promise\PromiseInterface
@@ -10417,6 +10410,7 @@ namespace Illuminate\Support\Facades {
          *
          * @param int $status
          * @return \Illuminate\Http\RedirectResponse
+         * @deprecated Will be removed in a future Laravel version.
          * @static
          */
         public static function home($status = 302)
@@ -19169,7 +19163,7 @@ namespace Illuminate\Routing {
 }
 
 
-namespace {
+namespace  {
     class App extends \Illuminate\Support\Facades\App
     {
     }
@@ -19450,7 +19444,7 @@ namespace {
          * Find a model by its primary key.
          *
          * @param mixed $id
-         * @param array $columns
+         * @param array|string $columns
          * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Collection|static[]|static|null
          * @static
          */
@@ -19464,7 +19458,7 @@ namespace {
          * Find multiple models by their primary keys.
          *
          * @param \Illuminate\Contracts\Support\Arrayable|array $ids
-         * @param array $columns
+         * @param array|string $columns
          * @return \Illuminate\Database\Eloquent\Collection
          * @static
          */
@@ -19478,7 +19472,7 @@ namespace {
          * Find a model by its primary key or throw an exception.
          *
          * @param mixed $id
-         * @param array $columns
+         * @param array|string $columns
          * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Collection|static|static[]
          * @throws \Illuminate\Database\Eloquent\ModelNotFoundException<\Illuminate\Database\Eloquent\Model>
          * @static
@@ -19493,7 +19487,7 @@ namespace {
          * Find a model by its primary key or return fresh model instance.
          *
          * @param mixed $id
-         * @param array $columns
+         * @param array|string $columns
          * @return \Illuminate\Database\Eloquent\Model|static
          * @static
          */
@@ -19507,7 +19501,7 @@ namespace {
          * Find a model by its primary key or call a callback.
          *
          * @param mixed $id
-         * @param \Closure|array $columns
+         * @param \Closure|array|string $columns
          * @param \Closure|null $callback
          * @return \Illuminate\Database\Eloquent\Model|\Illuminate\Database\Eloquent\Collection|static[]|static|mixed
          * @static
@@ -19563,7 +19557,7 @@ namespace {
         /**
          * Execute the query and get the first result or throw an exception.
          *
-         * @param array $columns
+         * @param array|string $columns
          * @return \Illuminate\Database\Eloquent\Model|static
          * @throws \Illuminate\Database\Eloquent\ModelNotFoundException<\Illuminate\Database\Eloquent\Model>
          * @static
@@ -19577,7 +19571,7 @@ namespace {
         /**
          * Execute the query and get the first result or call a callback.
          *
-         * @param \Closure|array $columns
+         * @param \Closure|array|string $columns
          * @param \Closure|null $callback
          * @return \Illuminate\Database\Eloquent\Model|static|mixed
          * @static
@@ -19714,7 +19708,7 @@ namespace {
          * Paginate the given query.
          *
          * @param int|null|\Closure $perPage
-         * @param array $columns
+         * @param array|string $columns
          * @param string $pageName
          * @param int|null $page
          * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
@@ -19731,7 +19725,7 @@ namespace {
          * Paginate the given query into a simple paginator.
          *
          * @param int|null $perPage
-         * @param array $columns
+         * @param array|string $columns
          * @param string $pageName
          * @param int|null $page
          * @return \Illuminate\Contracts\Pagination\Paginator
@@ -19747,7 +19741,7 @@ namespace {
          * Paginate the given query into a cursor paginator.
          *
          * @param int|null $perPage
-         * @param array $columns
+         * @param array|string $columns
          * @param string $cursorName
          * @param \Illuminate\Pagination\Cursor|string|null $cursor
          * @return \Illuminate\Contracts\Pagination\CursorPaginator
@@ -19950,6 +19944,19 @@ namespace {
         {
             /** @var \Illuminate\Database\Eloquent\Builder $instance */
             return $instance->setEagerLoads($eagerLoad);
+        }
+
+        /**
+         * Indicate that the given relationships should not be eagerly loaded.
+         *
+         * @param array $relations
+         * @return \Illuminate\Database\Eloquent\Builder|static
+         * @static
+         */
+        public static function withoutEagerLoad($relations)
+        {
+            /** @var \Illuminate\Database\Eloquent\Builder $instance */
+            return $instance->withoutEagerLoad($relations);
         }
 
         /**
@@ -20322,6 +20329,24 @@ namespace {
         {
             /** @var \Illuminate\Database\Eloquent\Builder $instance */
             return $instance->whereHas($relation, $callback, $operator, $count);
+        }
+
+        /**
+         * Add a relationship count / exists condition to the query with where clauses.
+         *
+         * Also load the relationship with same condition.
+         *
+         * @param string $relation
+         * @param \Closure|null $callback
+         * @param string $operator
+         * @param int $count
+         * @return \Illuminate\Database\Eloquent\Builder|static
+         * @static
+         */
+        public static function withWhereHas($relation, $callback = null, $operator = '>=', $count = 1)
+        {
+            /** @var \Illuminate\Database\Eloquent\Builder $instance */
+            return $instance->withWhereHas($relation, $callback, $operator, $count);
         }
 
         /**
@@ -21950,8 +21975,8 @@ namespace {
          * Add a "having" clause to the query.
          *
          * @param \Closure|string $column
-         * @param string|null $operator
-         * @param string|null $value
+         * @param string|int|float|null $operator
+         * @param string|int|float|null $value
          * @param string $boolean
          * @return \Illuminate\Database\Query\Builder
          * @static
@@ -21966,8 +21991,8 @@ namespace {
          * Add an "or having" clause to the query.
          *
          * @param \Closure|string $column
-         * @param string|null $operator
-         * @param string|null $value
+         * @param string|int|float|null $operator
+         * @param string|int|float|null $value
          * @return \Illuminate\Database\Query\Builder
          * @static
          */
@@ -23038,8 +23063,6 @@ namespace Illuminate\Support {
      * @method Fluent useCurrent() Add the default timestamp value
      * @method Fluent change() Add the change modifier
      */
-    class Fluent
-    {
-    }
+    class Fluent {}
 }
 

@@ -17,9 +17,10 @@ class FeedbackAdminController extends Controller
     {
     }
 
-    public function index(): View
+    public function index(Request $request): View
     {
-        $feedbacks = $this->feedbackService->getFeedbacksAdminPaginate();
+
+        $feedbacks = $this->feedbackService->getFeedbacksAdminPaginate($request->all());
         return view('admin.feedback.index', [
             'feedbacks' => $feedbacks
         ]);
