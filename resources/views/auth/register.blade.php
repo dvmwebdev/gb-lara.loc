@@ -19,7 +19,7 @@
 
                             <div class="row mb-3">
                                 <label for="username"
-                                       class="col-md-4 col-form-label text-md-end">{{ trans('register.input.label.username') }}</label>
+                                       class="col-md-4 col-form-label text-md-end">{{ trans('input.label.username') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="username" type="text"
@@ -38,7 +38,7 @@
 
                             <div class="row mb-3">
                                 <label for="email"
-                                       class="col-md-4 col-form-label text-md-end">{{ trans('register.input.label.email') }}</label>
+                                       class="col-md-4 col-form-label text-md-end">{{ trans('input.label.email') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
@@ -57,7 +57,7 @@
 
                             <div class="row mb-3">
                                 <label for="password"
-                                       class="col-md-4 col-form-label text-md-end">{{ trans('register.input.label.password')}}</label>
+                                       class="col-md-4 col-form-label text-md-end">{{ trans('input.label.password')}}</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
@@ -75,7 +75,7 @@
 
                             <div class="row mb-3">
                                 <label for="password-confirm"
-                                       class="col-md-4 col-form-label text-md-end">{{ trans('register.input.label.password_confirm') }}</label>
+                                       class="col-md-4 col-form-label text-md-end">{{ trans('input.label.password_confirm') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password"

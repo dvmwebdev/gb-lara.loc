@@ -20,7 +20,7 @@
 
                                 <div class="row mb-3">
                                     <label for="email"
-                                           class="col-md-4 col-form-label text-md-end">{{ trans('login.input.label.email') }}</label>
+                                           class="col-md-4 col-form-label text-md-end">{{ trans('input.label.email') }}</label>
 
                                     <div class="col-md-6">
                                         <input id="email" type="email"
@@ -40,7 +40,7 @@
 
                                 <div class="row mb-3">
                                     <label for="password"
-                                           class="col-md-4 col-form-label text-md-end">{{ trans('login.input.label.password') }}</label>
+                                           class="col-md-4 col-form-label text-md-end">{{ trans('input.label.password') }}</label>
 
                                     <div class="col-md-6">
                                         <input id="password" type="password"
@@ -67,7 +67,7 @@
 
                                             <label class="form-check-label"
                                                    for="remember">
-                                                {{ trans('login.input.label.checkbox') }}
+                                                {{ trans('input.label.checkbox') }}
                                             </label>
                                         </div>
                                     </div>
