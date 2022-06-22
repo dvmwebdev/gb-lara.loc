@@ -6,6 +6,7 @@ namespace App\Services;
 use App\Http\Filter\FeedbackFilter;
 use App\Http\Requests\Feedback\CreateRequest;
 use App\Models\Feedback;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
@@ -20,16 +21,27 @@ class FeedbackService
     {
     }
 
+    /**
+     * @return Collection
+     */
     public function getFeedbacksAll(): Collection
     {
         return $this->feedback->all();
     }
 
+    /**
+     * @return LengthAwarePaginator
+     */
     public function getFeedbacksPaginate(): LengthAwarePaginator
     {
         return $this->feedback->sortable(['created_at' => 'desc'])->with('user')->where('feedbacks.moderate', 1)->paginate(25);
     }
 
+    /**
+     * @param array $data
+     * @return LengthAwarePaginator
+     * @throws BindingResolutionException
+     */
     public function getFeedbacksAdminPaginate(array $data): LengthAwarePaginator
     {
 
@@ -37,11 +49,20 @@ class FeedbackService
         return $this->feedback->filter($filter)->sortable(['created_at' => 'desc'])->with('user')->paginate(6);
     }
 
+    /**
+     * @param int $userId
+     * @return LengthAwarePaginator
+     */
     public function getFeedbacksByUserPaginate(int $userId): LengthAwarePaginator
     {
         return $this->feedback->sortable(['created_at' => 'desc'])->where('feedbacks.user_id', $userId)->paginate(5);
     }
 
+    /**
+     * @param CreateRequest $request
+     * @param $user
+     * @return Feedback
+     */
     public function create(CreateRequest $request, $user): Feedback
     {
 
@@ -55,6 +76,11 @@ class FeedbackService
         return $feedback;
     }
 
+    /**
+     * @param Request $request
+     * @param Feedback $feedback
+     * @return Feedback
+     */
     public function update(Request $request, Feedback $feedback): Feedback
     {
 
