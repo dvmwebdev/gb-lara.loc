@@ -12,7 +12,7 @@
                     @endif
                     <div class="card">
                         <div
-                            class="card-header">{{ trans('login.card.header.text') }}</div>
+                            class="card-header">{{ trans('card.login') }}</div>
 
                         <div class="card-body">
                             <form method="POST" action="{{ route('login') }}">
@@ -77,7 +77,7 @@
                                     <div class="col-md-8 offset-md-4">
                                         <button type="submit"
                                                 class="btn btn-primary">
-                                            {{ trans('login.button.text') }}
+                                            {{ trans('button.login') }}
                                         </button>
 
                                         @if (Route::has('password.request'))

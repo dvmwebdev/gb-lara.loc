@@ -11,7 +11,7 @@
                 @endif
                 <div class="card">
                     <div
-                        class="card-header">{{ trans('register.card.header.text') }}</div>
+                        class="card-header">{{ trans('card.register') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
@@ -89,7 +89,7 @@
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit"
                                             class="btn btn-primary">
-                                        {{ trans('register.button.text') }}
+                                        {{ trans('button.register') }}
                                     </button>
                                 </div>
                             </div>

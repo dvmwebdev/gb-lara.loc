@@ -30,13 +30,13 @@
                                     class="rounded-circle" width="150">
                                 <div class="mt-3">
                                     <button class="btn btn-warning">
-                                        {{trans('userprofile.button.feedback.moderate')}}
+                                        {{trans('button.moderate')}}
                                         <span
                                             class="badge bg-danger">{{$user->countFeedbacksModerate()}}</span>
                                     </button>
                                     <button type="button"
                                             class="btn btn-primary">
-                                        {{trans('userprofile.button.feedback.all')}}
+                                        {{trans('button.all')}}
                                         <span
                                             class="badge bg-secondary">{{$user->countFeedbacksAll()}}</span>
                                     </button>
@@ -50,7 +50,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">{{trans('userprofile.table.item.username')}}</h6>
+                                    <h6 class="mb-0">{{trans('table.column.username')}}</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     {{$user->username}}
@@ -59,7 +59,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">{{trans('userprofile.table.item.email')}}</h6>
+                                    <h6 class="mb-0">{{trans('table.column.email')}}</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     {{$user->email}}
@@ -68,7 +68,7 @@
                             <hr>
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <h6 class="mb-0">{{trans('userprofile.table.item.homepage')}}</h6>
+                                    <h6 class="mb-0">{{trans('table.column.homepage')}}</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
                                     {{$user->homepage??'-'}}
@@ -78,7 +78,7 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <a class="btn btn-info "
-                                       href="{{route('user.edit',$user->id)}}">{{trans('userprofile.table.button.edit')}}</a>
+                                       href="{{route('user.edit',$user->id)}}">{{trans('button.edit')}}</a>
                                 </div>
                             </div>
                         </div>

@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div
-                        class="card-header">{{ trans('home.card.header.text') }}</div>
+                        class="card-header">{{ trans('card.feedback') }}</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -20,15 +20,15 @@
                                 <table class="table table-bordered">
                                     <thead>
                                     <tr>
-                                        <th scope="col">{{trans('home.table.column.content')}}</th>
+                                        <th scope="col">{{trans('table.column.content')}}</th>
                                         <th scope="col">
-                                            @sortablelink('user.email',trans('home.table.column.email'))
+                                            @sortablelink('user.email',trans('table.column.email'))
                                         </th>
                                         <th scope="col">
-                                            @sortablelink('user.username',trans('home.table.column.username'))
+                                            @sortablelink('user.username',trans('table.column.username'))
                                         </th>
                                         <th scope="col">
-                                            @sortablelink('created_at',trans('home.table.column.create'))
+                                            @sortablelink('created_at',trans('table.column.create'))
                                         </th>
                                     </tr>
                                     </thead>

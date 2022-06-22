@@ -32,7 +32,7 @@
                                 @method('patch')
                                 <div class="row align-items-baseline">
                                     <div class="col-sm-4">
-                                        <h6 class="mb-0">{{trans('useredit.input.label.username')}}</h6>
+                                        <h6 class="mb-0">{{trans('input.label.username')}}</h6>
                                     </div>
                                     <div class="col-sm-8 text-secondary">
                                         <label for="username" class="w-100">
@@ -51,7 +51,7 @@
                                 <hr>
                                 <div class="row align-items-baseline">
                                     <div class="col-sm-4">
-                                        <h6 class="mb-0">{{trans('useredit.input.label.homepage')}}</h6>
+                                        <h6 class="mb-0">{{trans('input.label.homepage')}}</h6>
                                     </div>
                                     <div class="col-sm-8 text-secondary">
                                         <label class="w-100">
@@ -74,7 +74,7 @@
                                             class="rounded-circle" width="150">
                                         <div class="input-group mt-3">
                                             <label class="input-group-text"
-                                                   for="image">{{trans('useredit.input.label.download')}}</label>
+                                                   for="image">{{trans('input.label.download')}}</label>
                                             <input type="file"
                                                    class="form-control"
                                                    name="image" id="image">
@@ -83,7 +83,7 @@
                                 </div>
                                 <hr>
                                 <button type="submit"
-                                        class="btn btn-primary">{{trans('useredit.button.edit')}}</button>
+                                        class="btn btn-primary">{{trans('button.save')}}</button>
                             </form>
                         </div>
                     </div>
