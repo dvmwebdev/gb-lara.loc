@@ -54,14 +54,14 @@
                         <li class="page-item disabled" aria-disabled="true"
                             aria-label="@lang('pagination.previous')">
                             <span class="page-link"
-                                  aria-hidden="true">&lsaquo;</span>
+                                  aria-hidden="true">&lsaquo; {{trans('pagination.previous')}}</span>
                         </li>
                     @else
                         <li class="page-item">
                             <a class="page-link"
                                href="{{ $paginator->previousPageUrl() }}"
                                rel="prev"
-                               aria-label="@lang('pagination.previous')">&lsaquo;</a>
+                               aria-label="@lang('pagination.previous')">&lsaquo; {{trans('pagination.previous')}}</a>
                         </li>
                     @endif
 
@@ -96,13 +96,13 @@
                         <li class="page-item">
                             <a class="page-link"
                                href="{{ $paginator->nextPageUrl() }}" rel="next"
-                               aria-label="@lang('pagination.next')">&rsaquo;</a>
+                               aria-label="@lang('pagination.next')">{{trans('pagination.next')}} &rsaquo;</a>
                         </li>
                     @else
                         <li class="page-item disabled" aria-disabled="true"
                             aria-label="@lang('pagination.next')">
                             <span class="page-link"
-                                  aria-hidden="true">&rsaquo;</span>
+                                  aria-hidden="true">{{trans('pagination.next')}} &rsaquo;</span>
                         </li>
                     @endif
                 </ul>

@@ -17,5 +17,4 @@ return [
     'throttle' => 'Забагато спроб входу. Будь ласка, спробуйте ще раз, через :seconds секунд.',
     'login.card.header.text' => 'Вхід',
     'link.forgot.password' => 'Забули свій пароль?',
-    'register.card.header.text' => 'Реєстрація',
 ];
