@@ -10,10 +10,10 @@
             <nav aria-label="breadcrumb" class="main-breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a
-                            href="{{route('home.index')}}">{{trans('userprofile.breadcrumb.text.home')}}</a>
+                            href="{{route('home.index')}}">{{trans('breadcrumbs.home')}}</a>
                     </li>
                     <li class="breadcrumb-item active"
-                        aria-current="page">{{trans('userprofile.breadcrumb.text.user')}}</li>
+                        aria-current="page">{{trans('breadcrumbs.user')}}</li>
                 </ol>
             </nav>
             <!-- /Breadcrumb -->

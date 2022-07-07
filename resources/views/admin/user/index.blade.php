@@ -1,12 +1,27 @@
 @extends('layouts.admin')
 
 @section('content')
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Користувач</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="{{route('admin.dashboard.index')}}">Дашборд</a>
+                        </li>
+                        <li class="breadcrumb-item active">Користувач</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">DataTable with minimal features &
-                        hover style</h3>
+                <div class="card-header bg-gradient-gray">
+                    <h3 class="card-title">{{trans('card.user')}}</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -15,15 +30,15 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>username</th>
-                            <th>email</th>
-                            <th>status</th>
-                            <th>baned</th>
-                            <th>user browser</th>
-                            <th>user ip</th>
-                            <th>create</th>
-                            <th>update</th>
-                            <th>actions</th>
+                            <th>{{trans('table.column.username')}}</th>
+                            <th>{{trans('table.column.email')}}</th>
+                            <th>{{trans('table.column.status')}}</th>
+                            <th>{{trans('table.column.is_baned')}}</th>
+                            <th>{{trans('input.label.user_agent')}}</th>
+                            <th>{{trans('input.label.user_ip')}}</th>
+                            <th>{{trans('table.column.create')}}</th>
+                            <th>{{trans('table.column.updated_at')}}</th>
+                            <th>{{trans('table.column.actions')}}</th>
                         </tr>
                         </thead>
                         <tbody>

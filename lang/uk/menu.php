@@ -5,5 +5,6 @@ return [
     'item.login' => 'Вхід',
     'item.profile' => 'Профіль',
     'item.logout' => 'Вихід',
+    'item.forgot' => 'Відновити пароль',
 ];
 

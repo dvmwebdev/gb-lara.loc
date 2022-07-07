@@ -7,10 +7,12 @@ use App\Http\Requests\Auth\RegisterRequest;
 use App\Services\UserService;
 use DomainException;
 use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\RedirectResponse;
 
 class RegisterController extends Controller
 {
+    use RegistersUsers;
     /**
      * Create a new controller instance.
      *

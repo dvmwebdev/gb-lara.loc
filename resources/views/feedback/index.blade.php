@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div
-                        class="card-header">{{ trans('feedback.card.header.text') }}</div>
+                        class="card-header">{{ trans('card.feedback') }}</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -16,17 +16,17 @@
                         @endif
                         <div class="feedbacks__list p-3">
                             <a href="{{route('feedback.create')}}"
-                               class="btn btn-primary mb-3">{{trans('feedback.button.add.new')}}</a>
+                               class="btn btn-primary mb-3">{{trans('button.add')}}</a>
                             @if ( $feedbacks->count())
                                 <table class="table table-bordered">
                                     <thead>
                                     <tr>
                                         <th scope="col">#</th>
-                                        <th scope="col">{{trans('feedback.table.colum.content')}}</th>
-                                        <th scope="col">{{trans('feedback.table.colum.moderate')}}</th>
-                                        <th scope="col">{{trans('feedback.table.colum.image')}}</th>
-                                        <th scope="col">{{trans('feedback.table.colum.create')}}</th>
-                                        <th>{{trans('feedback.table.colum.actions')}}</th>
+                                        <th scope="col">{{trans('table.column.content')}}</th>
+                                        <th scope="col">{{trans('table.column.moderate')}}</th>
+                                        <th scope="col">{{trans('table.column.image')}}</th>
+                                        <th scope="col">{{trans('table.column.create')}}</th>
+                                        <th>{{trans('table.column.actions')}}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -68,7 +68,7 @@
                                     {{ $feedbacks->withQueryString()->links('vendor.pagination.bootstrap-5') }}
                                 </div>
                             @else
-                                <p>{{trans('feedback.text.not.feedback')}}</p>
+                                <p>{{trans('table.not.data')}}</p>
                             @endif
                         </div>
                     </div>

@@ -1,6 +1,24 @@
 @extends('layouts.admin')
 
 @section('content')
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Користувач</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="{{route('admin.dashboard.index')}}">Дашборд</a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="{{route('admin.user.index')}}">Користувач</a>
+                        </li>
+                        <li class="breadcrumb-item active">Редагування</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -18,7 +36,7 @@
                             @method('patch')
                             <div class="row mb-3">
                                 <label for="is_baned"
-                                       class="col-md-4 col-form-label text-md-end">is_baned</label>
+                                       class="col-md-4 col-form-label text-md-end">{{trans('input.label.is_baned')}}</label>
 
                                 <div class="col-md-6">
                                     <select class="form-control"

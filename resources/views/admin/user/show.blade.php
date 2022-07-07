@@ -1,20 +1,36 @@
 @extends('layouts.admin')
 
 @section('content')
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Користувач</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="{{route('admin.dashboard.index')}}">Дашборд</a>
+                        </li>
+                        <li class="breadcrumb-item active">Користувач</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
     <div class="row">
         <div class="col-6">
             <table class="table table-bordered">
                 <tbody>
                 <tr>
-                    <th>id</th>
+                    <th>ID</th>
                     <td>{{$user->id}}</td>
                 </tr>
                 <tr>
-                    <th>username</th>
+                    <th>{{trans('table.column.username')}}</th>
                     <td>{{$user->username}}</td>
                 </tr>
                 <tr>
-                    <th>email</th>
+                    <th>{{trans('table.column.email')}}</th>
                     <td>{{$user->email}}</td>
                 </tr>
                 </tbody>
@@ -27,9 +43,9 @@
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">content</th>
-            <th scope="col">moderate</th>
-            <th scope="col">create</th>
+            <th scope="col">{{trans('table.column.content')}}</th>
+            <th scope="col">{{trans('table.column.moderate')}}</th>
+            <th scope="col">{{trans('table.column.create')}}</th>
         </tr>
         </thead>
         <tbody>

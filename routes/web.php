@@ -20,17 +20,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
-Route::group(['prefix' => 'user', 'middleware' => ['auth', 'role.user']], function () {
+Route::group(['prefix' => 'user', 'middleware' => ['auth', 'role.user', 'verified']], function () {
     Route::get('/', [UserController::class, 'index'])->name('user.index');
     Route::get('/edit/{user}', [UserController::class, 'edit'])->name('user.edit');
     Route::patch('/update/{user}', [UserController::class, 'update'])->name('user.update');
 });
 
-Route::group(['prefix' => 'feedback', 'middleware' => ['auth', 'role.user']], function () {
+Route::group(['prefix' => 'feedback', 'middleware' => ['auth', 'role.user', 'verified']], function () {
     Route::get('/', [FeedbackController::class, 'index'])->name('feedback.index');
     Route::get('/create', [FeedbackController::class, 'create'])->name('feedback.create');
     Route::post('/store', [FeedbackController::class, 'store'])->name('feedback.store');
@@ -39,7 +39,7 @@ Route::group(['prefix' => 'feedback', 'middleware' => ['auth', 'role.user']], fu
     Route::get('delete/{feedback}', [FeedbackController::class, 'delete'])->name('feedback.delete');
 });
 
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'role.admin']], function () {
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'role.admin', 'verified']], function () {
     Route::get('/', [DashboardAdminController::class, 'index'])->name('admin.dashboard.index');
 
     Route::get('/feedback', [FeedbackAdminController::class, 'index'])->name('admin.feedback.index');

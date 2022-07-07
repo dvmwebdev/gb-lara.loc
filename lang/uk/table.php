@@ -11,4 +11,6 @@ return [
     'column.is_baned' => 'Бан',
     'column.create' => 'Дата створення',
     'column.updated_at' => 'Дата редагування',
+    'column.actions' => 'Дії',
+    'not.data' => 'Дані відсутні',
 ];

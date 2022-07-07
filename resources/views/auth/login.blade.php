@@ -83,7 +83,7 @@
                                         @if (Route::has('password.request'))
                                             <a class="btn btn-link"
                                                href="{{ route('password.request') }}">
-                                                {{ trans('login.link.forgot.password') }}
+                                                {{ trans('menu.item.forgot') }}
                                             </a>
                                         @endif
                                     </div>

@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div
-                        class="card-header">{{trans('feedbackcreate.card.header.text')}}</div>
+                        class="card-header">{{trans('card.feedback.create')}}</div>
                     <div class="card-body">
                         <form method="POST"
                               action="{{ route('feedback.store') }}"
@@ -15,7 +15,7 @@
 
                             <div class="row mb-3">
                                 <label for="username"
-                                       class="col-md-4 col-form-label text-md-end">{{ trans('feedbackcreate.input.label.username') }}</label>
+                                       class="col-md-4 col-form-label text-md-end">{{ trans('input.label.username') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="username" type="text"
@@ -30,7 +30,7 @@
 
                             <div class="row mb-3">
                                 <label for="email"
-                                       class="col-md-4 col-form-label text-md-end">{{ trans('feedbackcreate.input.label.email') }}</label>
+                                       class="col-md-4 col-form-label text-md-end">{{ trans('input.label.email') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="text"
@@ -43,7 +43,7 @@
 
                             <div class="row mb-3">
                                 <label for="homepage"
-                                       class="col-md-4 col-form-label text-md-end">{{ trans('feedbackcreate.input.label.homepage') }}</label>
+                                       class="col-md-4 col-form-label text-md-end">{{ trans('input.label.homepage') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="homepage" type="text"
@@ -61,7 +61,7 @@
 
                             <div class="row mb-3">
                                 <label for="image"
-                                       class="col-md-4 col-form-label text-md-end">{{ trans('feedbackcreate.input.label.image') }}</label>
+                                       class="col-md-4 col-form-label text-md-end">{{ trans('input.label.image') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="image" type="file"
@@ -78,7 +78,7 @@
 
                             <div class="row mb-3">
                                 <label for="content"
-                                       class="col-md-4 col-form-label text-md-end">{{ trans('feedbackcreate.input.label.content') }}</label>
+                                       class="col-md-4 col-form-label text-md-end">{{ trans('input.label.content') }}</label>
 
                                 <div class="col-md-6">
                                     <textarea
@@ -109,7 +109,7 @@
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit"
                                             class="btn btn-primary">
-                                        {{ trans('feedbackcreate.button.add') }}
+                                        {{ trans('button.add') }}
                                     </button>
                                 </div>
                             </div>
